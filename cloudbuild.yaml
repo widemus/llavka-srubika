@@ -1,0 +1,11 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '-t'
+  - 'us-central1-docker.pkg.dev/lavka-srubika/app-images/gambling-api:v1'
+  - '-f'
+  - 'packages/api/Dockerfile'
+  - '.'
+images:
+- 'us-central1-docker.pkg.dev/lavka-srubika/app-images/gambling-api:v1'
