@@ -12,7 +12,7 @@ async function dbConnector(fastify, options) {
   if (process.env.DB_SOCKET_PATH) {
     fastify.log.info(`Connecting to Cloud SQL via Socket: ${process.env.DB_SOCKET_PATH}`);
     dbConfig.socketPath = process.env.DB_SOCKET_PATH;
-  } 
+  }
   // Host/Port
   else {
     fastify.log.info(`Connecting to Database via TCP: ${process.env.DB_HOST}`);
@@ -24,7 +24,7 @@ async function dbConnector(fastify, options) {
     const pool = mysql.createPool(dbConfig);
     // Test connection
     await pool.getConnection();
-    
+
     fastify.decorate('mysql', pool);
     fastify.log.info('Database connected successfully');
   } catch (err) {
